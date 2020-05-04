@@ -161,6 +161,7 @@ class GAN:
         image = tf.io.read_file(image_path)
         image = tf.image.decode_jpeg(image)
         image = tf.cast(image, tf.float32)
+        image = tf.image.resize(image, IMG_HEIGHT, IMG_WIDTH, method=tf.image.ResizeMethod.NEAREST_NEIGHBOR)
         image = (image / 127.5) - 1
 
         prediction = self.generator(image[None], training=True)
