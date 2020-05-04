@@ -16,7 +16,7 @@ def transform_pil_image_to_bytes(image: Image):
     return buffer
 
 
-token = '229213507:AAG_Bp8PCvg1fcbdwKVJH2rNV7LEI_boeTM'
+token = TOKEN
 
 REQUEST_KWARGS = {
     'proxy_url': 'socks5://51.15.119.190:1080',
