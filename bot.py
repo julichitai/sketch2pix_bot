@@ -26,6 +26,7 @@ REQUEST_KWARGS = {
     }
 }
 
+# TODO раскатать модель
 checkpoint = GAN('../checkpoints')
 
 
@@ -35,15 +36,13 @@ def get_image_bytes(bot, update):
     else:
         file_id = update.message.photo[-1]['file_id']
     file = bot.getFile(file_id)
-    image = file.download_as_bytearray()
     image_path = f'image_{file_id}.jpg'
     file.download(image_path)
     return image_path
 
 
 def start(bot, update):
-    text = 'Привет, я бот, показывающий контура распознаваний с кибаны. Пришли мне url изображения с мониты.\n' \
-           'Распознавания показываются по final_recognition, чтобы изменить на raw_recognition напишите команду /switch'
+    text = 'Привет, я бот, разукрашивающий ваш набросок. Пришлите мне ваше изображения.'
     bot.send_message(chat_id=update.message.chat_id, text=text)
 
 
@@ -61,8 +60,6 @@ def handle_image(bot, update):
 
 
 def temp(bot, update):
-    print(bot)
-    print(update)
     bot.send_sticker(update.message.chat_id, 'CAACAgIAAxkBAAIpOl6pQxvHCAN3X7JuXXV2uM9-RazAAAJcAANBqK4GoHz0eN-ZjpMZBA')
 
 
