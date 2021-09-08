@@ -1,7 +1,7 @@
 matplotlib==3.2.1
 numpy==1.18.4
 opencv-python==4.2.0.34
-Pillow==7.1.2
+Pillow==8.3.2
 PySocks==1.7.1
 python-telegram-bot==12.7
 tensorflow==2.1.0
